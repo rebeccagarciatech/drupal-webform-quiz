@@ -1,0 +1,6 @@
+name = DoSomething Webform Quiz
+description = Integration between webform module to create a quiz
+core = 6.x
+dependencies[] = webform
+package = "Quiz"
+version = "6.x-0.1-dev"

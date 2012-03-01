@@ -1,0 +1,10 @@
+<?php
+
+/* define webform id */
+
+define('webform_quiz', '');
+
+/*hook_webform_submission_insert($node, $submission) */
+
+
+/* hook_webform_select_options_info(). */
