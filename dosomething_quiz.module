@@ -4,6 +4,15 @@
 
 define('webform_quiz', '');
 
+function hook_webform_select_options_info() {
+  $items = array();
+  
+  $items['questions'] = array{
+  'title' => t('Questions')
+  'options callback' => webform_options_question',
+  'file' => /includes/webform.options.inc',
+  );
+
 /*hook_webform_submission_insert($node, $submission) */
 
 
