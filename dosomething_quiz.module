@@ -2,23 +2,11 @@
 
 /* define webform id */
 
-define('QUIZ_ID', '');
+define('QUIZ_ID', '3');
 
-/* hook_theme()  create theme templates */
-function dosomething_quiz_theme() {
-  $theme = array(
-  'dosomething_quiz_result' => array(
-    'arguments' => array(
-	  'sid' => NULL,
-	  'draft' => NULL,
-	  },
-	  'template' => 'templates/quiz-result',
-	  ),
-  );
-  return $theme;
-)  
-
-/* hook_form_alter(&$form_state, $form_id) */
+/** 
+* hook_form_alter(&$form_state, $form_id) 
+*/
 
 
 /* hook_webform_select_options_info(). */
