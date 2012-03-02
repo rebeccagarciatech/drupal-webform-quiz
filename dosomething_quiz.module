@@ -1,8 +1,5 @@
 <?php
 
-/* define webform id */
-
-define('QUIZ_ID', '3');
 /** 
 * hook_form_alter(&$form_state, $form_id) 
 */
@@ -14,11 +11,12 @@ define('QUIZ_ID', '3');
 */
 
 function dosomething_quiz_form_webform_client_form_3_alter(&$form, &$form_state) {
-  $form ['#submit'][2] = 'dosomething_quiz_result_redirect';
+  $form ['#submit'][] = 'dosomething_quiz_result_redirect';
 }
-
-function dosomething_quiz_result_redirect(&$form, &$form_state) {
-  dsm ($form_state);  
+/** 
+* Count number of occurences for each choice
+*/
+function dosomething_quiz_result_redirect(&$form, &$form_state) { 
   $a_count = 0;
   $b_count = 0;
   $c_count = 0;
@@ -39,18 +37,25 @@ function dosomething_quiz_result_redirect(&$form, &$form_state) {
 		break;
 	}	
   }  
+/** 
+* Count the result that has the maximum number of choices then redirect to result page. 
+* In case of tie it will redirect to the first result.
+*/  
   $max = max($a_count, $b_count, $c_count, $d_count);
   if ($a_count == $max) {
-  drupal_goto
+  // result a page
+    drupal_goto('content/result-a');
   }
   else if ($b_count == $max) {
-  
+  // result b page
+    drupal_goto('content/result-b');  
   }
   else if ($c_count == $max) {
-  
+  // result c page
+    drupal_goto('content/result-c');  
   }
   else if ($d_count == $max) {
-  
+  // result d page
+    drupal_goto('content/result-d');  
   }  
-  dsm ($max);
 }
