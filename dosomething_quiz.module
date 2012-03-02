@@ -2,8 +2,26 @@
 
 /* define webform id */
 
-define('webform_quiz', '');
+define('QUIZ_ID', '');
 
+/* hook_theme()  create theme templates */
+function dosomething_quiz_theme() {
+  $theme = array(
+  'dosomething_quiz_result' => array(
+    'arguments' => array(
+	  'sid' => NULL,
+	  'draft' => NULL,
+	  },
+	  'template' => 'templates/quiz-result',
+	  ),
+  );
+  return $theme;
+)  
+
+/* hook_form_alter(&$form_state, $form_id) */
+
+
+/* hook_webform_select_options_info(). */
 function hook_webform_select_options_info() {
   $items = array();
   
@@ -14,6 +32,8 @@ function hook_webform_select_options_info() {
   );
 
 /*hook_webform_submission_insert($node, $submission) */
+function dosomething_quiz_submission_insert($node, $submission) {
+ if ($node->nid == QUIZ_ID) {
+   if ($submission
 
 
-/* hook_webform_select_options_info(). */
