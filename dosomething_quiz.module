@@ -3,25 +3,54 @@
 /* define webform id */
 
 define('QUIZ_ID', '3');
-
 /** 
 * hook_form_alter(&$form_state, $form_id) 
 */
 
+/**
+* function dosomething_quiz_form_alter(&$form, &$form_state, $form_id) {
+*  dsm ($form_id);
+* }
+*/
 
-/* hook_webform_select_options_info(). */
-function hook_webform_select_options_info() {
-  $items = array();
+function dosomething_quiz_form_webform_client_form_3_alter(&$form, &$form_state) {
+  $form ['#submit'][2] = 'dosomething_quiz_result_redirect';
+}
+
+function dosomething_quiz_result_redirect(&$form, &$form_state) {
+  dsm ($form_state);  
+  $a_count = 0;
+  $b_count = 0;
+  $c_count = 0;
+  $d_count = 0;
+  foreach ($form_state['values']['submitted'] as $answer) {
+    switch ($answer) {
+	  case 'a':
+	    $a_count++;
+		break;
+	  case 'b':
+	    $b_count++;
+		break;
+	  case 'c':
+	    $c_count++;
+		break;
+	  case 'd':
+	    $d_count++;
+		break;
+	}	
+  }  
+  $max = max($a_count, $b_count, $c_count, $d_count);
+  if ($a_count == $max) {
+  drupal_goto
+  }
+  else if ($b_count == $max) {
   
-  $items['questions'] = array{
-  'title' => t('Questions')
-  'options callback' => webform_options_question',
-  'file' => /includes/webform.options.inc',
-  );
-
-/*hook_webform_submission_insert($node, $submission) */
-function dosomething_quiz_submission_insert($node, $submission) {
- if ($node->nid == QUIZ_ID) {
-   if ($submission
-
-
+  }
+  else if ($c_count == $max) {
+  
+  }
+  else if ($d_count == $max) {
+  
+  }  
+  dsm ($max);
+}
