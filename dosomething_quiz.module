@@ -10,11 +10,12 @@
 * }
 */
 
+// replace '3' with the webform id
 function dosomething_quiz_form_webform_client_form_3_alter(&$form, &$form_state) {
   $form ['#submit'][] = 'dosomething_quiz_result_redirect';
 }
 /** 
-* Count number of occurences for each choice
+* Count number of occurrences for each choice
 */
 function dosomething_quiz_result_redirect(&$form, &$form_state) { 
   $a_count = 0;
