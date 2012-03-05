@@ -11,8 +11,8 @@ It counts the number of occurences an option is chosen and if there is a tie wil
 
 USAGE
 -----
-1. Make sure webform module is installed & enabled
-2. Create webform for quiz, note the webform id.
+1. Create webform for quiz, note the webform id
+2. Make sure webform module is installed & enabled 
 3. Change webform id in function dosomething_quiz_form_webform_client_form_#_alter
 4. Create select questions with a, b, c, d as safe_keys
    i.e. a|This is an answer for apples
