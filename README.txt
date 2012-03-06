@@ -7,7 +7,8 @@ CONTENTS OF THIS FILE
 INTRODUCTION
 ------------
 This module uses webform to calculate answers for a "personality test" type quiz based on select options.
-It counts the number of occurences an option is chosen and if there is a tie will then select the first option it comes across.
+
+It counts the number of occurences an option is chosen and will then redirect to that result. If there is a tie will then select the first option it comes across.
 
 USAGE
 -----
@@ -25,4 +26,6 @@ USAGE
 TO DO
 -----
 * Abstract code
-* Add functionality and interface to manage quizzes and results
+* Admin interface
+  - manage quizzes
+  - manage results
